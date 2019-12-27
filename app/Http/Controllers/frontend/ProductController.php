@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     function getShop() {
-        echo 'product';
+        return view('frontend.product.shop');
     }
 
     function getDetail() {
-        echo 'detail';
+        return view('frontend.product.detail');
     }
 }

@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     function getIndex() {
-        echo 'admin';
+        return view('backend.index');
     }
 }

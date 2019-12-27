@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     function getIndex() {
-        echo 'index';
+        return view('frontend.index');
     }
     function getAbout() {
-        echo 'about';
+        return view('frontend.about');
     }
 
     function getContact() {
-        echo 'contact';
+        return view('frontend.contact');
     }
 }

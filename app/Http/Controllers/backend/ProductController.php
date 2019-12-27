@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    function getProdcut() {
-        echo 'product';
+    function getProduct() {
+        return view('backend.product.listproduct');
     }
 
     function getAddProduct() {
-        echo 'add product';
+        return view('backend.product.addproduct');
     }
 
     function getEditProduct() {
-        echo 'edit product';
+        return view('backend.product.editproduct');
     }
 }
