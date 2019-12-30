@@ -25,6 +25,8 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
+                    <form method="post">
+                        @csrf
                         <div class="col-md-5">
 
                             <div class="form-group">
@@ -49,6 +51,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Sửa danh mục</button>
                         </div>
+                    </form>
                         <div class="col-md-7">
                             <div class="alert bg-success" role="alert">
                                 <svg class="glyph stroked checkmark">

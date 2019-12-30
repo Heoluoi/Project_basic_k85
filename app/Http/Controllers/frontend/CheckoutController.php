@@ -13,4 +13,8 @@ class CheckoutController extends Controller
     function getComplete() {
         return view('frontend.checkout.complete');
     }
+
+    function postCheckout(request $r){
+
+    }
 }

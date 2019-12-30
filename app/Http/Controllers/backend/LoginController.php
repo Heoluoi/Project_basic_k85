@@ -10,4 +10,8 @@ class LoginController extends Controller
     function getLogin() {
         return view('backend.login.login');
     }
+
+    function postLogin(request $r){
+
+    }
 }

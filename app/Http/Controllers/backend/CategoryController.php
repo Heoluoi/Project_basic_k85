@@ -14,4 +14,11 @@ class CategoryController extends Controller
     function getEditCategory() {
         return view('backend.category.editcategory');
     }
+
+    function postCategory(request $r){
+        // dd($r->all());
+    }
+    function postEditCategory(request $r){
+
+    }
 }

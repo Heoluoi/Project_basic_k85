@@ -13,6 +13,8 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Sửa sản phẩm</div>
                 <div class="panel-body">
+                    <form method="post" enctype="multipart/form-data">
+                        @csrf
                     <div class="row" style="margin-bottom:40px">
 
                                 <div class="col-md-8">
@@ -78,6 +80,7 @@
                             </div>
                         </div>
                     <div class="clearfix"></div>
+                </form>
                 </div>
             </div>
 

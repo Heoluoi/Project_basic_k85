@@ -13,6 +13,8 @@
             <div class="panel panel-primary">
                 <div class="panel-heading"><i class="fas fa-user"></i> Thêm thành viên</div>
                 <div class="panel-body">
+                    <form method="post">
+                        @csrf
                     <div class="row justify-content-center" style="margin-bottom:40px">
 
                         <div class="col-md-8 col-lg-8 col-lg-offset-2">
@@ -61,6 +63,7 @@
                     </div>
 
                     <div class="clearfix"></div>
+                </form>
                 </div>
             </div>
 
