@@ -22,25 +22,28 @@
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="text" name="email" class="form-control">
-                                <div class="alert alert-danger" role="alert">
-                                    <strong>email đã tồn tại!</strong>
-                                </div>
+                                {{showErrors($errors,'email')}}
+
                             </div>
                             <div class="form-group">
                                 <label>password</label>
                                 <input type="text" name="password" class="form-control">
+                                {{showErrors($errors,'password')}}
                             </div>
                             <div class="form-group">
                                 <label>Full name</label>
                                 <input type="full" name="full" class="form-control">
+                                {{showErrors($errors,'full')}}
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
                                 <input type="address" name="address" class="form-control">
+                                {{showErrors($errors,'address')}}
                             </div>
                             <div class="form-group">
                                 <label>Phone</label>
                                 <input type="phone" name="phone" class="form-control">
+                                {{showErrors($errors,'phone')}}
                             </div>
 
                             <div class="form-group">

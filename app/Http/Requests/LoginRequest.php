@@ -13,7 +13,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email'=>'required|email|min:5',
+            'password'=>'required|min:5'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.required'=>'Không được để trống email',
+            'email.email'=>'email không đúng định dạng',
+            'email.min'=>'email không được nhỏ hơn 5 ký tự',
+            'password.required'=>'Không được để trống Password',
+            'password.min'=>'Password Không được nhỏ hơn 5 ký tự',
+           
         ];
     }
 }

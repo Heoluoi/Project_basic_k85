@@ -31,7 +31,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fname">Họ & Tên</label>
-                                <input type="text" name="name" id="fname" class="form-control" placeholder="First Name">
+                                <input type="text" name="full" id="fname" class="form-control" placeholder="First Name">
+                                {{showErrors($errors,'full')}}
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -47,11 +48,13 @@
                                 <label for="email">Địa chỉ email</label>
                                 <input type="email" name="email" id="email" class="form-control"
                                     placeholder="Ex: youremail@domain.com">
+                                    {{showErrors($errors,'email')}}
                             </div>
                             <div class="col-md-6">
                                 <label for="Phone">Số điện thoại</label>
                                 <input type="text" name="phone" id="zippostalcode" class="form-control"
                                     placeholder="Ex: 0123456789">
+                                    {{showErrors($errors,'phone')}}
                             </div>
                         </div>
                         <div class="form-group">

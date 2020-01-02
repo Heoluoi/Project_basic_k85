@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -11,7 +12,7 @@ class LoginController extends Controller
         return view('backend.login.login');
     }
 
-    function postLogin(request $r){
+    function postLogin(LoginRequest $r){
 
     }
 }
