@@ -85,3 +85,65 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
+
+
+
+//--------------------LÝ THUYẾT--------------
+
+//SCHEMA
+
+Route::group(['prefix' => 'schema'], function () {
+    //Tạo bảng
+    Route::get('create-table', function () {
+        Schema::create('users', function ($table) {
+            $table->bigIncrements('id');      //bigint ,tự tăng ,khóa chính ,unsigned
+            $table->string('name')->nullable();   //varchar ,255 ký tự , cho phép null
+            $table->integer('phone')->unsigned()->nullable();   //int , ko dấu , cho phép null
+            $table->string('address', 100)->nullable()->unique();   //varchar , 100 ký tự , cho phép null, duy nhất
+            $table->boolean('level')->nullable()->default(1);    // boolean , cho phép null , mặc đinh là 1
+            $table->timestamps();             // tự tạo 2 trường created_at , updated_at
+        });
+
+        Schema::create('post', function ($table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+    });
+
+    //xóa bảng
+    Route::get('del-table', function () {
+        Schema::dropIfExists('thanh-vien');
+    });
+
+    //sửa tên bảng
+    Route::get('rename-table', function () {
+        Schema::rename('users', 'thanh-vien');
+    });
+
+
+    //tương tác với cột
+    //thêm cột
+    Route::get('add-col', function () {
+        Schema::table('users', function ($table) {
+            $table->integer('id_number')->unsigned()->nullable()->after('address');
+        });
+    });
+
+    //sửa , xóa cột
+    //sử dụng thư viện docttrine/dbal
+    //composer require doctrine/dbal
+    Route::get('edit-col', function () {
+        //sửa tên cột
+        Schema::table('users', function ($table) {
+            $table->renameColumn('name', 'full');
+        });
+
+        //xóa cột
+        Schema::table('users', function ($table) {
+            $table->dropColumn('id_number');
+        });
+
+    });
+});
+
