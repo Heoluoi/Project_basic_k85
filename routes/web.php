@@ -147,3 +147,56 @@ Route::group(['prefix' => 'schema'], function () {
     });
 });
 
+
+
+
+// QUERY BUILDER
+// tương tác với dữ liệu database
+// để tương tác với database dùng DB::
+
+Route::group(['prefix' => 'query'], function () {
+
+    //thêm bản ghi mới
+    Route::get('insert', function () {
+        //thêm 1 bản ghi
+        // DB::table('users')->insert([
+        //     'email'=>'A@gmail.com',
+        //     'password'=>'123456',
+        //     'full'=>'Nguyen Van A',
+        //     'phone'=>'123456789',
+        //     'address'=>'Ha noi',
+        //     'level'=>1
+        // ]);
+        //thêm nhiều bản ghi
+        DB::table('users')->insert([
+            ['email'=>'B@gmail.com','password'=>'123456','full'=>'Nguyen Van B','phone'=>'123456789','address'=>'Ha noi','level'=>0],
+            ['email'=>'C@gmail.com','password'=>'123456','full'=>'Nguyen Van C','phone'=>'123456789','address'=>'Bac Giang','level'=>0],
+            ['email'=>'D@gmail.com','password'=>'123456','full'=>'Nguyen Van D','phone'=>'123456789','address'=>'Hue','level'=>1]
+        ]);
+    });
+
+    //sửa bản ghi
+    Route::get('update', function () {
+
+        //tìm bản ghi theo điều kiện dung where()
+        // DB::table('users')->where('address','Ha noi')->update(['password'=>'654321']);
+
+        // DB::table('users')->where('address','Ha noi')->where('level',0)->update(['password'=>'123456','address'=>'Bac Ninh']);
+
+        //sửa hoặc thêm bản ghi : updateOrInsert([điều kiện],[ thay đổi])
+        // nếu tồn tại bản ghi đúng điều kiện thì sẽ update , còn không thì insert bản ghi mới
+        DB::table('users')->updateOrInsert(['address'=>'Ha noi'],['phone'=>'987654321','address'=>'Bac Giang']);
+    });
+
+    //xóa bản ghi
+    Route::get('del', function () {
+        //xóa 1 bản ghi
+        // DB::table('users')->where('id',5)->delete();
+
+        //xóa tất cả bản ghi
+        DB::table('users')->delete();
+
+    });
+
+
+});
