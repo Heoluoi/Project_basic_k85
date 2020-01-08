@@ -10,6 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+    //khai báo bảng ko có trường thời gian
+    public $timestamps=false;
+
+
     /**
      * The attributes that are mass assignable.
      *

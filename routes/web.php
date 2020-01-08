@@ -75,9 +75,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('','backend\UserController@getUser');
         Route::get('add', 'backend\UserController@getAddUser');
-        Route::get('edit','backend\UserController@getEditUser');
+        Route::get('edit/{idUser}','backend\UserController@getEditUser');
         Route::post('add', 'backend\UserController@postAddUser');
-        Route::post('edit','backend\UserController@postEditUser');
+        Route::post('edit/{idUser}','backend\UserController@postEditUser');
     });
 
 });
@@ -196,6 +196,63 @@ Route::group(['prefix' => 'query'], function () {
         //xóa tất cả bản ghi
         DB::table('users')->delete();
 
+    });
+
+
+    //nâng cao
+
+    //lấy dữ liệu trong database
+    // sử dụng phương thức get() , first() , find()
+
+
+    Route::get('get', function () {
+
+        //lấy tất cả dữ liệu theo điều kiện trả về dạng mảng
+        // $user = DB::table('users')->where('level',2)->get();
+        // dd($user->all());
+
+        //lấy 1 bản ghi đầu tiên theo điều kiện
+        // $user = DB::table('users')->where('level',2)->first();
+        // dd($user);
+
+
+        //lấy 1 bảng ghi theo id
+        $user = DB::table('users')->find(12);
+        dd($user);
+    });
+
+    //điều kiện where
+    Route::get('where', function () {
+        //where
+        // $user = DB::table('users')->where('level','<>',2)->get();
+        // dd($user);
+
+        //where and
+        // $user = DB::table('users')->where('level','<>',2)->where('full','vietpro')->get();
+        // dd($user);
+
+        //where-or
+        // $user = DB::table('users')->where('id','<',11)->orWhere('id','>',12)->get();
+        // dd($user);
+
+        //whereBetween
+        $user = DB::table('users')->whereBetween('id',[10,12])->get();
+        dd($user);
+
+    });
+
+    //lấy một số lượng bản ghi nhất định
+    Route::get('take', function () {
+        //take
+        // $user = DB::table('users')->take(3)->get();
+        // dd($user);
+
+        //orderBy : sắp xếp
+        // $user = DB::table('users')->orderBy('id','desc')->take(2)->get();
+        // dd($user);
+        //skip
+        $user = DB::table('users')->skip(1)->take(2)->get();
+        dd($user);
     });
 
 
