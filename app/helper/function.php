@@ -6,3 +6,14 @@ function showErrors($errors,$name){
     echo '</div>';
     }
 }
+
+//danh mục đệ quy
+function showCate($arr,$parent,$tab){
+	foreach($arr as $row){
+		if($row['parent']==$parent){
+			echo '<option>'.$tab.$row['name'].'</option>';
+
+		showCate($arr,$row['id'],$tab.'--|');
+		}
+	}
+}

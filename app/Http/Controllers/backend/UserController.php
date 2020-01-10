@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddUserRequest;
+use App\Http\Requests\EditUserRequest;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -35,7 +36,22 @@ class UserController extends Controller
         return redirect('/admin/user')->with('thongbao','Đã thêm thành công');
 
     }
-    function postEditUser(request $r) {
+    function postEditUser(EditUserRequest $r,$idUser) {
+        $user = User::find($idUser);
+        $user->email=$r->email;
+        if ($r->password!='') {
+            $user->password=bcrypt($r->password);
+        }
+        $user->full=$r->full;
+        $user->address=$r->address;
+        $user->phone=$r->phone;
+        $user->level=$r->level;
+        $user->save();
+        return redirect('/admin/user')->with('thongbao','Đã sửa thành công');
+    }
 
+    function delUser($idUser){
+        User::find($idUser)->delete();
+        return redirect('/admin/user')->with('thongbao','Đã xóa thành công');
     }
 }

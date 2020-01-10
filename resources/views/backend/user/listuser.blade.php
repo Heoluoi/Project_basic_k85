@@ -64,7 +64,7 @@
                                         <td>
                                             <a href="/admin/user/edit/{{$row->id}}" class="btn btn-warning"><i class="fa fa-pencil"
                                                     aria-hidden="true"></i> Sửa</a>
-                                            <a href="#" class="btn btn-danger"><i class="fa fa-trash"
+                                            <a onclick="return del()" href="/admin/user/del/{{$row->id}}" class="btn btn-danger"><i class="fa fa-trash"
                                                     aria-hidden="true"></i> Xóa</a>
                                         </td>
                                     </tr>
@@ -94,4 +94,9 @@
 @endsection
 @section('script')
     @parent
+    <script>
+        function del(){
+            return confirm('Bạn muốn xóa thành viên này ?');
+        }
+    </script>
 @endsection

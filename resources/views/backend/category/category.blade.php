@@ -31,11 +31,7 @@
                                 <label for="">Danh mục cha:</label>
                                 <select class="form-control" name="parent" id="">
                                     <option>----ROOT----</option>
-                                    <option>Nam</option>
-                                    <option>---|Áo khoác nam</option>
-                                    <option>---|---|Áo khoác nam</option>
-                                    <option>Nữ</option>
-                                    <option>---|Áo khoác nữ</option>
+                                  {{showCate($categories,0,'')}}
                                 </select>
                             </div>
                             <div class="form-group">
