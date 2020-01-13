@@ -50,9 +50,10 @@ Route::group(['prefix' => 'admin'], function () {
     //category
     Route::group(['prefix' => 'category'], function () {
         Route::get('','backend\CategoryController@getCategory');
-        Route::get('edit','backend\CategoryController@getEditCategory');
+        Route::get('edit/{idCate}','backend\CategoryController@getEditCategory');
         Route::post('','backend\CategoryController@postCategory');
-        Route::post('edit','backend\CategoryController@postEditCategory');
+        Route::post('edit/{idCate}','backend\CategoryController@postEditCategory');
+        Route::get('del/{idCate}','backend\CategoryController@delCategory');
     });
 
     //order

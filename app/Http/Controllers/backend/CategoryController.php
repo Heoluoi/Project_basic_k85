@@ -15,8 +15,10 @@ class CategoryController extends Controller
         return view('backend.category.category',$data);
     }
 
-    function getEditCategory() {
-        return view('backend.category.editcategory');
+    function getEditCategory($idCate) {
+        $data['categories']=Category::all();
+        $data['cate']=Category::find($idCate);
+        return view('backend.category.editcategory',$data);
     }
 
     function postCategory(AddCategoryRequest $r){
@@ -29,5 +31,12 @@ class CategoryController extends Controller
     }
     function postEditCategory(request $r){
 
+    }
+
+    function delCategory($idCate){
+        $cate= Category::find($idCate);
+        Category::where('parent',$cate->id)->update(['parent'=>$cate->parent]);
+        $cate->delete();
+        return redirect('/admin/category')->with('thongbao','Đã xóa thành công');
     }
 }

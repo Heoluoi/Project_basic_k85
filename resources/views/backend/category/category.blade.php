@@ -31,7 +31,7 @@
                                 <label for="">Danh mục cha:</label>
                                 <select class="form-control" name="parent" id="">
                                     <option value="0">----ROOT----</option>
-                                  {{showCate($categories,0,'')}}
+                                  {{showCate($categories,0,'',0)}}
                                 </select>
                             </div>
                             <div class="form-group">
