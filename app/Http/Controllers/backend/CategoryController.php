@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCategoryRequest;
 use Illuminate\Http\Request;
 use App\models\Category;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -19,7 +20,12 @@ class CategoryController extends Controller
     }
 
     function postCategory(AddCategoryRequest $r){
-        // dd($r->all());
+        $cate = new Category;
+        $cate->name=$r->name;
+        $cate->slug=Str::slug($r->name, '-');
+        $cate->parent=$r->parent;
+        $cate->save();
+        return redirect()->back()->with('thongbao','Đã thêm thành công');
     }
     function postEditCategory(request $r){
 
