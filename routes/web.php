@@ -259,3 +259,38 @@ Route::group(['prefix' => 'query'], function () {
 
 
 });
+
+
+//RELATIONSHIP
+    // bảng chính là bảng chứa khóa chính , bảng phụ là bảng chứa khóa ngoại
+    // liên kết bắt đầu từ bảng nào thì trong model của bảng đó
+    // liên kết từ bảng chính -> phụ là lk xuôi ngược lại là lk ngược
+
+
+    //liên kết 1-1
+        //liên kết 1-1 xuôi : return $this->hasOne(model lk đến, khóa ngoại, khóa chính);
+        Route::get('lk-1-1-x', function () {
+            $user = App\User::find(2);
+            $info = $user->info()->first();
+            dd($info->toarray());
+        });
+
+        //liên kết 1-1 ngược : return $this->belongsTo(model lk tới, khóa ngoại, khóa bảng phụ);
+        Route::get('lk-1-1-n', function () {
+            $info = App\models\info::find(2);
+            $user = $info->user()->first();
+            dd($user->toarray());
+        });
+
+    //liên kết 1- nhiều
+        //chiều xuôi : return $this->hasMany(model lk tới, khóa ngoại, khóa chính);
+        Route::get('lk-1-n', function () {
+            $cate = App\models\Category::find(2);
+            $prd = $cate->product()->get();
+            dd($prd->toarray());
+        });
+        //chiều ngược chính là liên kết 1-1 ngược
+
+    // liên kết n-n từ bảng 1 sang 2
+        //  return $this->belongsToMany('App\Role', 'role_user_table', 'user_id', 'role_id');
+                                    //model lk tới   //bảng pivot     khóa ngoại 1   khóa ngoại 2
