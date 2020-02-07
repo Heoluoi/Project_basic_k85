@@ -67,9 +67,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'product'], function () {
         Route::get('','backend\ProductController@getProduct');
         Route::get('add', 'backend\ProductController@getAddProduct');
-        Route::get('edit','backend\ProductController@getEditProduct' );
+        Route::get('edit/{idPrd}','backend\ProductController@getEditProduct' );
         Route::post('add', 'backend\ProductController@postAddProduct');
-        Route::post('edit','backend\ProductController@postEditProduct' );
+        Route::post('edit/{idPrd}','backend\ProductController@postEditProduct' );
+        Route::get('del/{idPrd}','backend\ProductController@DelProduct' );
     });
 
     //user
@@ -293,4 +294,4 @@ Route::group(['prefix' => 'query'], function () {
 
     // liên kết n-n từ bảng 1 sang 2
         //  return $this->belongsToMany('App\Role', 'role_user_table', 'user_id', 'role_id');
-                                    //model lk tới   //bảng pivot     khóa ngoại 1   khóa ngoại 2
+                                    //model lk tới    bảng pivot     khóa ngoại 1   khóa ngoại 2

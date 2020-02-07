@@ -21,10 +21,7 @@
                                     <div class="form-group">
                                         <label>Danh mục</label>
                                         <select name="category" class="form-control">
-                                            <option value='1' selected>Nam</option>
-                                            <option value='3'>---|Áo khoác nam</option>
-                                            <option value='2'>Nữ</option>
-                                            <option value='4'>---|Áo khoác nữ</option>
+                                            {{showCate($categories,0,'',$prd->category_id)}}
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -59,7 +56,7 @@
                                         <label>Ảnh sản phẩm</label>
                                         <input id="img" type="file" name="img" class="form-control hidden"
                                             onchange="changeImg(this)">
-                                        <img id="avatar" class="thumbnail" width="100%" height="350px" src="img/import-img.png">
+                                        <img id="avatar" class="thumbnail" width="100%" height="350px" src="img/{{$prd->img}}">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
