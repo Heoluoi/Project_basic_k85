@@ -25,7 +25,7 @@ class AddProductRequest extends FormRequest
     {
         return [
             'code'=>'required|min:3',
-            'name'=>'required|min:3',
+            'name'=>'required|min:3|unique:product,name',
             'price'=>'required|numeric',
             'img'=>'image', // file phải là định dạng ảnh
         ];
@@ -35,6 +35,7 @@ class AddProductRequest extends FormRequest
         return [
             'code.required'=>'Mã sản phẩm không được để trống!',
             'code.min'=>'Mã sản phẩm phải lớn hơn 3 ký tự!',
+            'name.unique'=>'Tên sản phẩm đã tồn tại',
             'name.required'=>'Tên sản phẩm không được để trống!',
             'name.min'=>'Tên sản phẩm phải lớn hơn 3 ký tự!!',
             'price.required'=>'Giá sản phẩm không được để trống!',

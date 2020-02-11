@@ -13,7 +13,7 @@ class EditProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,23 @@ class EditProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'code'=>'required|min:3',
+            'name'=>'required|min:3|unique:product,name,'.$this->idPrd,
+            'price'=>'required|numeric',
+            'img'=>'image', // file phải là định dạng ảnh
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'code.required'=>'Mã sản phẩm không được để trống!',
+            'code.min'=>'Mã sản phẩm phải lớn hơn 3 ký tự!',
+            'name.unique'=>'Tên sản phẩm đã tồn tại',
+            'name.required'=>'Tên sản phẩm không được để trống!',
+            'name.min'=>'Tên sản phẩm phải lớn hơn 3 ký tự!!',
+            'price.required'=>'Giá sản phẩm không được để trống!',
+            'price.numeric'=>'Giá sản phẩm không đúng định dạng!',
+            'img.image'=>'File Ảnh không đúng định dạng!',
         ];
     }
 }
