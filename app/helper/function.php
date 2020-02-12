@@ -27,7 +27,7 @@ function getCate($arr,$parent,$tab){
 			echo '<div class="item-menu"><span>'.$tab.$row['name'].'</span>
                     <div class="category-fix">
                     <a class="btn-category btn-primary" href="/admin/category/edit/'.$row['id'].'"><i class="fa fa-edit"></i></a>
-                    <a class="btn-category btn-danger" href="/admin/category/del/'.$row['id'].'"><i class="fas fa-times"></i></i></a>
+                    <a onclick="return del()" class="btn-category btn-danger" href="/admin/category/del/'.$row['id'].'"><i class="fas fa-times"></i></i></a>
 
                     </div>
                 </div>';

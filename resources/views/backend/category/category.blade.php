@@ -1,5 +1,6 @@
 @extends('backend.master.master')
 @section('title','Quản lý danh mục')
+@section('category','active')
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
@@ -73,4 +74,9 @@
 @endsection
 @section('script')
     @parent
+    <script>
+        function del(){
+            return confirm('Bạn muốn xóa danh mục này ?');
+        }
+    </script>
 @endsection

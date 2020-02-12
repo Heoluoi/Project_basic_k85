@@ -29,8 +29,13 @@ class CategoryController extends Controller
         $cate->save();
         return redirect()->back()->with('thongbao','Đã thêm thành công');
     }
-    function postEditCategory(request $r){
-
+    function postEditCategory(request $r,$idCate){
+        $cate = Category::find($idCate);
+        $cate->name=$r->name;
+        $cate->slug=Str::slug($r->name, '-');
+        $cate->parent=$r->parent;
+        $cate->save();
+        return redirect()->back()->with('thongbao','Đã sửa thành công');
     }
 
     function delCategory($idCate){
