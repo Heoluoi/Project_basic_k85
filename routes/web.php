@@ -40,11 +40,11 @@ Route::group(['prefix' => 'product'], function () {
 
 //----------------BACKEND------------
 //login
-Route::get('login','backend\LoginController@getLogin');
+Route::get('login','backend\LoginController@getLogin')->middleware('CheckLogout');
 Route::post('login','backend\LoginController@postLogin');
 Route::get('logout','backend\LoginController@getLogout');
 //admin
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function () {
     Route::get('','backend\IndexController@getIndex');
 
     //category
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admin'], function () {
     //order
     Route::group(['prefix' => 'order'], function () {
         Route::get('','backend\OrderController@getOrder');
-        Route::get('detail', 'backend\OrderController@getDetail');
+        Route::get('detail/{idOrder}', 'backend\OrderController@getDetail');
         Route::get('processed', 'backend\OrderController@getProcessed');
     });
 
