@@ -89,7 +89,7 @@
                                 </tbody>
                             </table>
                             <div class="alert alert-primary" role="alert" align='right'>
-                                <a name="" id="" class="btn btn-success" href="#" role="button">Đã xử lý</a>
+                            <a name="" id="" class="btn btn-success" href="/admin/order/xuLy/{{$order->id}}" role="button">Đã xử lý</a>
                             </div>
                         </div>
                     </div>

@@ -61,6 +61,7 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function () {
         Route::get('','backend\OrderController@getOrder');
         Route::get('detail/{idOrder}', 'backend\OrderController@getDetail');
         Route::get('processed', 'backend\OrderController@getProcessed');
+        Route::get('xuLy/{idOrder}', 'backend\OrderController@xuLy');
     });
 
     //product

@@ -21,4 +21,10 @@ class OrderController extends Controller
         $data['order']=order::where('state',2)->orderBy('updated_at','desc')->get();
         return view('backend.order.processed',$data);
     }
+    function xuLy($idOrder){
+        $order = order::find($idOrder);
+        $order->state = 2;
+        $order->save();
+        return redirect('/admin/order/processed');
+    }
 }
