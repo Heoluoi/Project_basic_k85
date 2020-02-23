@@ -32,8 +32,10 @@ Route::group(['prefix' => 'checkout'], function () {
 
 //product
 Route::group(['prefix' => 'product'], function () {
+    Route::get('category/{slugCate}','frontend\ProductController@getCate' );
     Route::get('shop','frontend\ProductController@getShop' );
     Route::get('detail', 'frontend\ProductController@getDetail');
+
 });
 
 
