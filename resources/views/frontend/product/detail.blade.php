@@ -9,24 +9,22 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/ao-so-mi-trang-kem-asm836-8193.jpg);">
-
+                                <div class="product-img" style="background-image: url(/backend/img/{{$prd->img}})">
                                 </div>
 
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <form action="product/AddCart" method="post">
-
+                            <form action="/cart" method="post">
+                                @csrf
                                 <div class="desc">
-                                    <h3>Áo Sơ Mi Trắng Kem ASM844</h3>
+                                    <h3>{{$prd->name}}</h3>
                                     <p class="price">
-                                        <span>150,000 đ</span>
+                                        <span>{{number_format($prd->price,0,'',',')}} đ</span>
                                     </p>
                                     <p>thông tin</p>
                                     <p style="text-align: justify;">
-                                        VIETPRO STORE sẽ giao hàng tận nơi khi chọn mua sản phẩm: Áo Sơ Mi Trắng Kem ASM844. Hoặc quí khách có thể đến tại địa chỉ shop có hiển thị bên dưới, khi chọn size phù hợp để xem và thử trực tiếp.
-
+                                        {{$prd->info}}
                                     </p>
 
 
@@ -47,7 +45,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="id_product" value="1">
+                                    <input type="hidden" name="id_product" value="{{$prd->id}}">
                                     <p><button class="btn btn-primary btn-addtocart" type="submit"> Thêm vào giỏ hàng</button></p>
                                 </div>
                             </form>
@@ -65,7 +63,7 @@
                         </ul>
                         <div class="tab-content">
                             <div id="description" class="tab-pane fade in active">
-                                Đây là sản phẩm đẹp
+                               {{$prd->describe}}
                             </div>
                         </div>
                     </div>

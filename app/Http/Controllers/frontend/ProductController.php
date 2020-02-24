@@ -22,9 +22,13 @@ class ProductController extends Controller
         return view('frontend.product.shop',$data);
     }
 
-    function getDetail() {
-        return view('frontend.product.detail');
+    function getDetail($prdSlug) {
+        $arr = explode("-",$prdSlug);
+        $id = array_pop($arr);
+        $data['prd']= product::find($id);
+        return view('frontend.product.detail',$data);
     }
+
     function getCate($slugCate,Request $r){
         if ($r->start!='') {
             $data['categories']=Category::all();

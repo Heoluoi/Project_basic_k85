@@ -21,6 +21,9 @@ Route::get('contact', 'frontend\HomeController@getContact');
 //cart
 Route::group(['prefix' => 'cart'], function () {
     Route::get('', 'frontend\CartController@getCart');
+    Route::post('', 'frontend\CartController@postCart');
+    Route::get('delete/{rowId}', 'frontend\CartController@delCart');
+    Route::get('update/{rowId}/{qty}', 'frontend\CartController@updateCart');
 });
 
 //checkout
@@ -34,9 +37,10 @@ Route::group(['prefix' => 'checkout'], function () {
 Route::group(['prefix' => 'product'], function () {
     Route::get('category/{slugCate}','frontend\ProductController@getCate' );
     Route::get('shop','frontend\ProductController@getShop' );
-    Route::get('detail', 'frontend\ProductController@getDetail');
 
 });
+Route::get('{prdSlug}.html', 'frontend\ProductController@getDetail');
+
 
 
 
