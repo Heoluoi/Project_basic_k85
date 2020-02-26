@@ -29,7 +29,7 @@ Route::group(['prefix' => 'cart'], function () {
 //checkout
 Route::group(['prefix' => 'checkout'], function () {
     Route::get('','frontend\CheckoutController@getCheckout' );
-    Route::get('complete','frontend\CheckoutController@getComplete' );
+    Route::get('complete/{orderId}','frontend\CheckoutController@getComplete' );
     Route::post('','frontend\CheckoutController@postCheckout' );
 });
 

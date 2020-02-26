@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="grand-total">
                                     <p><span><strong>Tổng cộng:</strong></span> <span>{{Cart::total(0,'','.')}} đ</span></p>
-                                    <a href="checkout.html" class="btn btn-primary">Thanh toán <i
+                                    <a href="/checkout" class="btn btn-primary">Thanh toán <i
                                             class="icon-arrow-right-circle"></i></a>
                                 </div>
                             </div>

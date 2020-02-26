@@ -10,16 +10,16 @@
                     <ul>
                         <li class="active"><a href="index.html">Trang chủ</a></li>
                         <li class="has-dropdown">
-                            <a href="shop.html">Cửa hàng</a>
+                            <a href="/product/shop">Cửa hàng</a>
                             <ul class="dropdown">
-                                <li><a href="cart.html">Giỏ hàng</a></li>
-                                <li><a href="checkout.html">Thanh toán</a></li>
+                                <li><a href="/cart">Giỏ hàng</a></li>
+                                <li><a href="/checkout">Thanh toán</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="about.html">Giới thiệu</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
-                        <li><a href="cart.html"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+                        <li><a href="/about">Giới thiệu</a></li>
+                        <li><a href="/contact">Liên hệ</a></li>
+                        <li><a href="/cart"><i class="icon-shopping-cart"></i> Giỏ hàng [{{Cart::count()}}]</a></li>
                     </ul>
                 </div>
             </div>
